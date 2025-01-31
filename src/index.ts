@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import myUserRoute from "./routes/MyUserRoute"
 import {v2 as cloudinary} from "cloudinary";
 import myRestaurantRoute from "./routes/MyRestaurantRoute";
+import RestaurantRoute from "./routes/RestaurantRoute";
 dotenv.config();
 
 const app = express(); // Middleware setup
@@ -29,6 +30,8 @@ app.get("/health", async (req: Request, res: Response) => {
 
 app.use("/api/my/user", myUserRoute);
 app.use("/api/my/restaurant", myRestaurantRoute);
+app.use("/api/restaurant", RestaurantRoute);
+
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
